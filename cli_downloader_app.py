@@ -286,8 +286,8 @@ def startInteractiveSession(args):
             case "--url":
                 prompt = input("[url] :: ")
                 url = prompt.strip()
-                if url[:4] == "ep__":
-                    url = url[4:]
+                if url[:4] == "ep__" or ep:
+                    url = url[4:] if url[:4] == "ep__" else url
                     filepath = get_filepath(url, storage_dirpath, True)
                 else:
                     filepath = get_filepath(url, storage_dirpath)
